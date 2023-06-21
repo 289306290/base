@@ -1,0 +1,60 @@
+person:
+  name: lisi
+  age: 20
+#logging:
+#  level:
+#    club.wujingjian: trace
+stu:
+  id: 110
+  name: 李四
+  age: 18
+teacher:
+  id: 3
+  name: 王老师
+  studentList:
+    - id: 101
+      name: 王一小
+      age: 10
+    - id: 102
+      name: 王二小
+      age: 11
+    - id: 103
+      name: 王三小
+      age: 12
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 10
+          max-wait: 10000
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatisplus?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: root
+logging:
+  level:
+    web: debug
+    sql: debug
+#    root: debug
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations:
+    - classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      #设置实体类对应表的统一前缀
+      table-prefix: t_
+      #设置统一的主键生成策略
+      id-type: auto
+  type-aliases-package: club.wujingjian.base.po
+
+#    - classpath*:/mappers/**/*.xml
