@@ -16,3 +16,13 @@ primary key(id)
 
 alter table user modify id bigint(20) auto_increment;
 alter table user   AUTO_INCREMENT=8
+
+
+
+create table t_product(
+id bigint(20) not null auto_increment comment '主键',
+name varchar(30) null default  '商品名称',
+price int(11) default 0 comment '价格',
+version int(11) default 0 comment '乐观锁版本号',
+primary key(id)
+) engine=innodb auto_increment=1
