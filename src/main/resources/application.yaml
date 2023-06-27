@@ -33,11 +33,29 @@ spring:
           max-active: 10
           max-wait: 10000
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatisplus?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&allowMultiQueries=true
-    username: root
-    password: root
+    dynamic:
+      hikari:
+        min-idle: 5  #最小空闲连接数量
+        idle-timeout: 180000 #5分钟
+        max-pool-size: 1000
+        connection-timeout: 60000
+      #设置默认数据源或者数据源组,默认值即为master
+      primary: master
+      #严格匹配数据源,默认为false,true表示未匹配到指定的数据源时抛异常,false使用默认的数据源
+      strict: false
+      datasource:
+        master: #默认数据
+          type: com.zaxxer.hikari.HikariDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatisplus?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+          username: root
+          password: root
+        slave:
+          type: com.zaxxer.hikari.HikariDataSource
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/mybatisplusslave?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+          username: root
+          password: root
 logging:
   level:
     web: debug

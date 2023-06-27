@@ -17,4 +17,6 @@ public interface UserService extends IService<User> {
     public int deleteById(Long id);
 
     public int deleteBatchIds(List<Long> ids);
+
+    public void testTransaction();
 }
