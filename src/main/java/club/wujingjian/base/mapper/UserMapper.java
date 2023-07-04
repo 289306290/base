@@ -1,4 +1,5 @@
 package club.wujingjian.base.mapper;
+import java.util.List;
 
 import club.wujingjian.base.po.User;
 import com.baomidou.dynamic.datasource.annotation.DS;
@@ -20,4 +21,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     IPage<User> selectPageVo(@Param("page") Page page, Integer age);
 
+    User selectByName(@Param("name") String name);
+
+    User selectByEmail(@Param("email") String email);
 }

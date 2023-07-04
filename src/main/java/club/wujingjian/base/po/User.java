@@ -12,6 +12,7 @@ public class User {
     private String name;
     private Integer age;
     private String email;
+    private String pwd;
     @TableLogic//逻辑删除,这样删除语句会变为update语句
     private Integer deleted;
 

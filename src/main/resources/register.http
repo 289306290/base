@@ -1,0 +1,24 @@
+#获取person
+GET http://localhost:8080/person
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWVzdDEiLCJpYXQiOjE2ODg0MzcyNzAsImV4cCI6MTY4ODQzODcxMH0.T6zuU7W1dTPLQddwjDj_RtqPaOuhQVrxHQAt_SL8Lkk"
+
+###
+### 注册用户
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "guest1",
+  "email": "guest1@qq.com",
+  "pwd": "123456"
+}
+### 认证用户
+POST http://localhost:8080/api/v1/auth/authenticate
+Content-Type: application/json
+
+{
+"username": "guest1",
+"pwd": "123456"
+}
+

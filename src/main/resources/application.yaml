@@ -76,5 +76,6 @@ mybatis-plus:
   type-aliases-package: club.wujingjian.base.po
   type-enums-package: club.wujingjian.base.enums
 
-
+#debug:
+#  true
 #    - classpath*:/mappers/**/*.xml
