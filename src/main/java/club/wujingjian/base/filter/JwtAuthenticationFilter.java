@@ -26,6 +26,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
 
 
+    /**
+     * 只要在这里设置了SecurityContextHolder.getContext().setAuthentication()并且UsernamePasswordAuthenticationToken的setAuthenticated(true)的情况,就直接相当于登录状态，
+     *  注意,new new UsernamePasswordAuthenticationToken(a,b,c) 三个参数 和  new UsernamePasswordAuthenticationToken(a,b)两个参数的区别。
+     *  三个参数setAuthenticated(true),两个参数setAuthenticated(false)
+     * SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
