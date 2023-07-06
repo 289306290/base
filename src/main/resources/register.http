@@ -1,7 +1,7 @@
 #获取person
 GET http://localhost:8080/person
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWVzdDEiLCJpYXQiOjE2ODg0MzcyNzAsImV4cCI6MTY4ODQzODcxMH0.T6zuU7W1dTPLQddwjDj_RtqPaOuhQVrxHQAt_SL8Lkk"
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWVzdDEiLCJpYXQiOjE2ODg0Mzg1NzYsImV4cCI6MTY4ODQ0MDAxNn0.80zTSLAT0TJ5PvLoA0i4AegFD6ZykTCPZVKpsMjVVb4
 
 ###
 ### 注册用户

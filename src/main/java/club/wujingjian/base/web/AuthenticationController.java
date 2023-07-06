@@ -4,6 +4,7 @@ import club.wujingjian.base.service.AuthenticationService;
 import club.wujingjian.base.vo.AuthenticationRequest;
 import club.wujingjian.base.vo.AuthenticationResponse;
 import club.wujingjian.base.vo.RegisterRequest;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
+@Tag(name = "AuthenticationController", description = "认证模块")
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;

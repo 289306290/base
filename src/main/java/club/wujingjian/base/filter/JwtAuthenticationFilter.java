@@ -12,9 +12,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
+import org.springframework.util.AntPathMatcher;
+import org.springframework.util.PathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +30,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
 
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        PathMatcher matcher = new AntPathMatcher();
+        List<String> ignoreUrl = Stream.<String>of ("/**/*.js","/**/*.png","/**/*.css","/**/*.gif","/webjars/**","/v2/**",
+                "/swagger**/**").collect(Collectors.toList());
+        for (String url: ignoreUrl) {
+            if (matcher.match(url, request.getServletPath())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * 只要在这里设置了SecurityContextHolder.getContext().setAuthentication()并且UsernamePasswordAuthenticationToken的setAuthenticated(true)的情况,就直接相当于登录状态，

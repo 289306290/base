@@ -79,3 +79,10 @@ mybatis-plus:
 #debug:
 #  true
 #    - classpath*:/mappers/**/*.xml
+
+springdoc:
+  swagger-ui:
+    path: /swagger.html
+  api-docs:
+    path: /api-docs
+  show-actuator: true
