@@ -62,8 +62,8 @@ public class SwaggerConfig {
                     .in(ParameterIn.HEADER.toString())
                     .schema(new StringSchema())
                     // name方法设置参数名称,此处为请求头名称
-                    .name("global-header")
-                    .example("示例")
+                    .name("globalHeader")
+                    .example("headerValue")
                     // description方法设置参数描述,此处为请求头描述
                     .description("全局请求头")
                     // required方法设置参数是否为必须
